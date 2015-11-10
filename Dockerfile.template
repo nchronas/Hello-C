@@ -1,0 +1,11 @@
+FROM resin/%%RESIN_MACHINE_NAME%%-debian
+
+#switch on systemd init system in container
+ENV INITSYSTEM on
+
+COPY . /usr/src/app
+WORKDIR /usr/src/app
+
+RUN gcc -o hello hello.c
+
+CMD ./hello
